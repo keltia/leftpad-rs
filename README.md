@@ -29,5 +29,5 @@ use leftpad_rs::pad;
 
 let e = "foobar";
 
-println!("{}", leftpad(e, 5));
+println!("{}", pad(e, 5));
 ```
