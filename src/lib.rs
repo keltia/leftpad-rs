@@ -20,30 +20,15 @@ pub mod leftpad_rs {
     mod tests {
         use super::*;
 
-        struct Testcase<'a> {
-            s: &'a str,
-            n: usize,
-            want: &'a str,
-        }
+        use rstest::rstest;
 
-        struct Testcase1<'a> {
-            s: &'a str,
-            n: usize,
-            want: Result<String,&'a str>,
-        }
-
-        #[test]
-        fn test_pad() {
-            let testdata: [Testcase; 4] = [
-                Testcase { s: "foo", n: 2, want: "foo" },
-                Testcase { s: "foo", n: 3, want: "foo" },
-                Testcase { s: "foo", n: 4, want: " foo" },
-                Testcase { s: "foo", n: 5, want: "  foo" },
-            ];
-
-            for t in testdata {
-                assert_eq!(pad(t.s, t.n), t.want);
-            }
+        #[rstest]
+        #[case(2,"foo")]
+        #[case(3,"foo")]
+        #[case(4," foo")]
+        #[case(5,"  foo")]
+        fn test_pad(#[case] n: usize, #[case] want: &str) {
+            assert_eq!(want, pad("foo", n));
         }
 
         #[test]
@@ -51,23 +36,23 @@ pub mod leftpad_rs {
             assert_ne!(pad("foo", 6), "foobar")
         }
 
-        #[test]
-        fn test_pad_char() {
-            let testdata: [Testcase1; 4] = [
-                Testcase1 { s: "foo", n: 2, want: Ok("foo".to_string()) },
-                Testcase1 { s: "foo", n: 3, want: Ok("foo".to_string()) },
-                Testcase1 { s: "foo", n: 4, want: Ok("Xfoo".to_string()) },
-                Testcase1 { s: "foo", n: 5, want: Ok("XXfoo".to_string()) },
-            ];
+        #[rstest]
+        #[case(2,"foo")]
+        #[case(3,"foo")]
+        #[case(4,"Xfoo")]
+        #[case(5,"XXfoo")]
+        fn test_pad_char(#[case] n: usize, #[case] want: &str) {
+            assert_eq!(Ok(want.to_string()), pad_char("foo", n, 'X'));
+        }
 
-            for t in testdata {
-                assert_eq!(pad_char(t.s, t.n, 'X'), t.want);
-            }
+        #[test]
+        fn test_pad_char_0() {
+            assert_eq!(Err("invalid size"), pad_char("foo", 0, 'X'))
         }
 
         #[test]
         fn test_nopad_char() {
-            assert_ne!(pad_char("foo", 6, 'X'), Ok("foobar".to_string()))
+            assert_ne!(Ok("foobar".to_string()), pad_char("foo", 6, 'X'))
         }
     }
 }
