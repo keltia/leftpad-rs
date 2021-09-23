@@ -66,6 +66,11 @@ pub mod leftpad_rs {
         }
 
         #[test]
+        fn test_pad_char_0() {
+            assert_eq!(pad_char("foo", 0, 'X'), Err("invalid size"))
+        }
+
+        #[test]
         fn test_nopad_char() {
             assert_ne!(pad_char("foo", 6, 'X'), Ok("foobar".to_string()))
         }
