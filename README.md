@@ -25,7 +25,7 @@ leftpad-rs = "0.1.0"
 ```
 
 ``` rust
-use leftpad_rs::Leftpad;
+use leftpad_rs::pad;
 
 let e = "foobar";
 
