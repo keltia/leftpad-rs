@@ -35,4 +35,4 @@ mod leftpad_rs {
 
 }
 
-pub use crate::leftpad_rs::pad;
+pub use crate::leftpad_rs::*;
