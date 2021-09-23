@@ -1,4 +1,4 @@
-mod leftpad_rs {
+pub mod leftpad_rs {
     pub fn pad(s: &str, n: usize) -> String {
         format!("{:>width$}", s, width = n)
     }
