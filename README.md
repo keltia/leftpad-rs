@@ -25,9 +25,12 @@ leftpad-rs = "0.1.0"
 ```
 
 ``` rust
-use leftpad_rs::pad;
+use leftpad_rs::*;
 
-let e = "foobar";
+fn main() {
+    let s = "foo";
 
-println!("{}", pad(e, 5));
+    println!("{}", pad(s, 5));
+    println!("{:?}", pad_char(s, 5, 'b'));
+}
 ```
