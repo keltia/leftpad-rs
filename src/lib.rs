@@ -47,12 +47,12 @@ pub mod leftpad_rs {
 
         #[test]
         fn test_pad_char_0() {
-            assert_eq!(pad_char("foo", 0, 'X'), Err("invalid size"))
+            assert_eq!(Err("invalid size"), pad_char("foo", 0, 'X'))
         }
 
         #[test]
         fn test_nopad_char() {
-            assert_ne!(pad_char("foo", 6, 'X'), Ok("foobar".to_string()))
+            assert_ne!(Ok("foobar".to_string()), pad_char("foo", 6, 'X'))
         }
     }
 }
