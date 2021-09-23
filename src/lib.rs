@@ -10,21 +10,26 @@ mod leftpad_rs {
         struct Testcase<'a> {
             s: &'a str,
             n: usize,
-            want: String,
+            want: &'a str,
         }
 
         #[test]
         fn test_pad() {
             let testdata: [Testcase; 4] = [
-                Testcase { s: "foo", n: 2, want: "foo".to_string()},
-                Testcase { s: "foo", n: 3, want: "foo".to_string()},
-                Testcase { s: "foo", n: 4, want: " foo".to_string()},
-                Testcase { s: "foo", n: 5, want: "  foo".to_string()},
+                Testcase { s: "foo", n: 2, want: "foo" },
+                Testcase { s: "foo", n: 3, want: "foo" },
+                Testcase { s: "foo", n: 4, want: " foo" },
+                Testcase { s: "foo", n: 5, want: "  foo" },
             ];
 
             for t in testdata {
                 assert_eq!(pad(t.s, t.n), t.want);
             }
+        }
+
+        #[test]
+        fn test_nopad() {
+            assert_ne!(pad("foo", 6), "foobar")
         }
     }
 
