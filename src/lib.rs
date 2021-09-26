@@ -5,7 +5,7 @@
 //!
 //! Examples:
 //! ```
-//!   use leftpad_rs::*;
+//!   use crate::leftpad_rs::*;
 //!
 //!   let r = pad("foo", 5);  // -> "  foo"
 //!
