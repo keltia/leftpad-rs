@@ -1,8 +1,26 @@
+//! Leftpad implementation in Rust.
+//!
+//! This is a Rust implementation of the famous Leftpad NPM package with `pad()` and `pad_char()`.
+//! Based on the Go implementation I wrote back in 2018.
+//!
+//! Examples:
+//! ```
+//!   use crate::leftpad_rs::*;
+//!
+//!   let r = pad("foo", 5);  // -> "  foo"
+//!
+//!   let s = pad_char("foo", 6, 'X');    // -> "XXXfoo"
+//! ```
+
+/// This module implements `pad` and `pad_char`.
 pub mod leftpad_rs {
+
+    /// Left-pads the string with spaces.
     pub fn pad(s: &str, n: usize) -> String {
         format!("{:>width$}", s, width = n)
     }
 
+    /// Left-pads the string with the supplied character.
     pub fn pad_char(s: &str, n: usize, c: char) -> Result<String, &str> {
         let l = s.len();
 
