@@ -1,0 +1,26 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: rust:latest
+    environment:
+      TZ: "Europe/Paris"
+    steps:
+      - checkout
+      - restore_cache:
+          key: project-cache
+      - run:
+          name: Check formatting
+          command: cargo fmt -- --check
+      - run:
+          name: Stable Build
+          command: cargo build
+      - run:
+          name: Test
+          command: cargo test
+      - save_cache:
+          key: project-cache
+          paths:
+            - "~/.cargo"
+            - "./target"
