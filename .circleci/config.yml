@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: rust:latest
     environment:
-      TZ: "Europe/Paris"
+      TZ: "/usr/share/zoneinfo/Europe/Paris"
     steps:
       - checkout
       - restore_cache:
@@ -24,3 +24,8 @@ jobs:
           paths:
             - "~/.cargo"
             - "./target"
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build
