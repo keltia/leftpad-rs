@@ -1,6 +1,6 @@
 [package]
 name = "leftpad-rs"
-version = "0.1.2"
+version = "1.0.0"
 edition = "2018"
 authors = ["Ollivier Robert <roberto@keltia.net>"]
 keywords = ["leftpad", "joke"]
