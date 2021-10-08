@@ -6,13 +6,7 @@ Inspired by the "left-pad" NPM package (and the fiasco that happened after its r
 
 ### Build status
 
-Branch: master — [![master|Build Status](https://travis-ci.org/keltia/leftpad.svg?branch=master)](http://travis-ci.org/keltia/leftpad)
-
-### Install
-
-```
-cargo install leftpad-rs 
-```
+[![CircleCI](https://circleci.com/gh/keltia/leftpad-rs/tree/main.svg?style=shield)](https://circleci.com/gh/keltia/leftpad-rs/tree/main)
 
 ### Usage
 
@@ -21,7 +15,7 @@ cargo install leftpad-rs
 Add the following to your `Cargo.toml`:
 ``` toml
 [dependencies]
-leftpad-rs = "0.1.0"
+leftpad-rs = "0.1"
 ```
 
 ``` rust
