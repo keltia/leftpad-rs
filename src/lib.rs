@@ -41,10 +41,10 @@ pub mod leftpad_rs {
         use rstest::rstest;
 
         #[rstest]
-        #[case(2,"foo")]
-        #[case(3,"foo")]
-        #[case(4," foo")]
-        #[case(5,"  foo")]
+        #[case(2, "foo")]
+        #[case(3, "foo")]
+        #[case(4, " foo")]
+        #[case(5, "  foo")]
         fn test_pad(#[case] n: usize, #[case] want: &str) {
             assert_eq!(want, pad("foo", n));
         }
@@ -55,10 +55,10 @@ pub mod leftpad_rs {
         }
 
         #[rstest]
-        #[case(2,"foo")]
-        #[case(3,"foo")]
-        #[case(4,"Xfoo")]
-        #[case(5,"XXfoo")]
+        #[case(2, "foo")]
+        #[case(3, "foo")]
+        #[case(4, "Xfoo")]
+        #[case(5, "XXfoo")]
         fn test_pad_char(#[case] n: usize, #[case] want: &str) {
             assert_eq!(Ok(want.to_string()), pad_char("foo", n, 'X'));
         }
