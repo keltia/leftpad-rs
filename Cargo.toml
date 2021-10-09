@@ -8,6 +8,7 @@ repository = "https://github.com/keltia/leftpad-rs"
 license = "MIT"
 readme = "README.md"
 description = "Rust implementation of the Go Leftpad package."
+documentation = "https://docs.rs/leftpad-rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
