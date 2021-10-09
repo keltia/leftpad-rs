@@ -31,7 +31,7 @@ to your `Cargo.toml`:
 
 ``` toml
 [dependencies]
-leftpad-rs = "1.0.0"
+leftpad-rs = "1.0.1"
 ```
 then you can use it in your own crates.
 
