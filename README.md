@@ -16,17 +16,19 @@ Inspired by the "left-pad" NPM package (and the fiasco that happened after its r
 
 ## Example
 ``` rust
-use leftpad_rs::{pad,pad_char};
+use leftpad_rs::{pad,pad_char,pad_with};
 
 fn main() {
     let s = "foo";
 
     println!("{}", pad(s, 5));
-    println!("{:?}", pad_char(s, 5, 'b'));
+    let s1 = match pad_char(s, 6, ' ')) {
+        Ok(s) => s,
+        Err(e) => Err("Error: {}", e)
+    };
+    println!("{:?}", s1);
     
     // You can use pad_with() too now.
-    //println!("{:?}", pad_with(s, 5, 'b'));
-}
 ```
 ## crates.io
 You can use this package in your project by adding the following
