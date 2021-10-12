@@ -23,6 +23,9 @@ fn main() {
 
     println!("{}", pad(s, 5));
     println!("{:?}", pad_char(s, 5, 'b'));
+    
+    // You can use pad_with() too now.
+    //println!("{:?}", pad_with(s, 5, 'b'));
 }
 ```
 ## crates.io
@@ -31,7 +34,7 @@ to your `Cargo.toml`:
 
 ``` toml
 [dependencies]
-leftpad-rs = "1.0.1"
+leftpad-rs = "1.1.0"
 ```
 then you can use it in your own crates.
 

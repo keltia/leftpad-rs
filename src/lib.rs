@@ -34,6 +34,11 @@ pub mod leftpad_rs {
         Ok(format!("{}{}", f, s))
     }
 
+    /// Useful alias
+    pub fn pad_with(s: &str, n: usize, c: char) -> Result<String, &str> {
+        pad_char(s, n, c)
+    }
+    
     #[cfg(test)]
     mod tests {
         use super::*;
@@ -72,6 +77,26 @@ pub mod leftpad_rs {
         fn test_nopad_char() {
             assert_ne!(Ok("foobar".to_string()), pad_char("foo", 6, 'X'))
         }
+
+        #[rstest]
+        #[case(2, "foo")]
+        #[case(3, "foo")]
+        #[case(4, "Xfoo")]
+        #[case(5, "XXfoo")]
+        fn test_pad_with(#[case] n: usize, #[case] want: &str) {
+            assert_eq!(Ok(want.to_string()), pad_with("foo", n, 'X'));
+        }
+
+        #[test]
+        fn test_pad_with_0() {
+            assert_eq!(Err("invalid size"), pad_with("foo", 0, 'X'))
+        }
+
+        #[test]
+        fn test_nopad_with() {
+            assert_ne!(Ok("foobar".to_string()), pad_with("foo", 6, 'X'))
+        }
+
     }
 }
 
