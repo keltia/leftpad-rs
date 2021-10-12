@@ -24,7 +24,7 @@ pub mod leftpad_rs {
     pub fn pad_char(s: &str, n: usize, c: char) -> Result<String, &str> {
         let l = s.len();
 
-        if n <= 0 {
+        if n == 0 {
             return Err("invalid size");
         }
         if n <= l {
@@ -75,4 +75,4 @@ pub mod leftpad_rs {
     }
 }
 
-pub use crate::leftpad_rs::*;
+//pub use crate::leftpad_rs::*;
