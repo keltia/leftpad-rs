@@ -1,6 +1,7 @@
 # Leftpad
 
 [![CircleCI](https://circleci.com/gh/keltia/leftpad-rs/tree/main.svg?style=shield)](https://circleci.com/gh/keltia/leftpad-rs/tree/main)
+[![dependency status](https://deps.rs/repo/github/keltia/leftpad-rs/status.svg)](https://deps.rs/repo/github/keltia/leftpad-rs)
 [![](https://img.shields.io/crates/v/leftpad-rs.svg)](https://crates.io/crates/leftpad-rs)
 [![Docs](https://docs.rs/leftpad-rs/badge.svg)](https://docs.rs/leftpad-rs)
 
